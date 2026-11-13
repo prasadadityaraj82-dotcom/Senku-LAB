@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fredoka", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #86EFAC;
+    color: #111827;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Dr. Stone Anime Sunburst Rays Background */
+.senku-sunburst-bg {
+  background-color: #74F09A;
+  background-image:
+    radial-gradient(circle at 50% 42%, rgba(254, 240, 138, 0.72) 0%, rgba(134, 239, 172, 0.2) 48%, rgba(56, 189, 248, 0.35) 100%),
+    repeating-conic-gradient(
+      from 0deg at 50% 42%,
+      rgba(255, 255, 255, 0.24) 0deg 7deg,
+      transparent 7deg 15deg
+    );
+  background-attachment: fixed;
+}
+
+.senku-map-sunburst {
+  background-color: #6EE7B7;
+  background-image:
+    radial-gradient(circle at 52% 48%, rgba(254, 249, 195, 0.78) 0%, rgba(110, 231, 183, 0.35) 55%, rgba(56, 189, 248, 0.45) 100%),
+    repeating-conic-gradient(
+      from 3deg at 52% 48%,
+      rgba(255, 255, 255, 0.28) 0deg 6deg,
+      transparent 6deg 14deg
+    );
+}
+
+.senku-yellow-sunburst {
+  background-color: #FEF08A;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.75) 0%, rgba(254, 240, 138, 0.4) 65%, rgba(253, 224, 71, 0.7) 100%),
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(255, 255, 255, 0.35) 0deg 8deg,
+      transparent 8deg 18deg
+    );
+}
+
+/* Comic Panel & Tactile Button Helpers */
+.comic-panel {
+  border: 3px solid #111827;
+  box-shadow: 4px 4px 0px #111827;
+}
+
+.comic-panel-sm {
+  border: 3px solid #111827;
+  box-shadow: 3px 3px 0px #111827;
+}
+
+.comic-btn {
+  border: 3px solid #111827;
+  box-shadow: 0px 4px 0px #111827;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.comic-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0px 5px 0px #111827;
+}
+
+.comic-btn:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0px 1px 0px #111827;
+}
+
+.comic-node-glow {
+  box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.45), 4px 4px 0px #111827;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes comic-shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-8px) rotate(-1.5deg); }
+  30% { transform: translateX(8px) rotate(1.5deg); }
+  45% { transform: translateX(-6px) rotate(-1deg); }
+  60% { transform: translateX(6px) rotate(1deg); }
+  75% { transform: translateX(-3px); }
+}
+
+.animate-comic-shake {
+  animation: comic-shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes bubble-rise {
+  0% { transform: translateY(14px) scale(0.7); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(-28px) scale(1.15); opacity: 0; }
+}
+
+.animate-bubble-1 {
+  animation: bubble-rise 1.4s ease-out infinite;
+}
+.animate-bubble-2 {
+  animation: bubble-rise 1.7s ease-out 0.35s infinite;
+}
+.animate-bubble-3 {
+  animation: bubble-rise 1.3s ease-out 0.7s infinite;
+}
+
+@keyframes senku-dance-body {
+  0%, 100% { transform: translateY(0) rotate(-3deg) scale(1, 1); }
+  25% { transform: translateY(-14px) rotate(3deg) scale(0.97, 1.04); }
+  50% { transform: translateY(0) rotate(3deg) scale(1.03, 0.96); }
+  75% { transform: translateY(-14px) rotate(-3deg) scale(0.97, 1.04); }
+}
+
+@keyframes senku-arm-wave-left {
+  0%, 100% { transform: rotate(-18deg); }
+  50% { transform: rotate(28deg); }
+}
+
+@keyframes senku-arm-wave-right {
+  0%, 100% { transform: rotate(22deg); }
+  50% { transform: rotate(-28deg); }
+}
+
+@keyframes senku-leg-groove-left {
+  0%, 100% { transform: rotate(10deg) translateY(0); }
+  50% { transform: rotate(-14deg) translateY(-5px); }
+}
+
+@keyframes senku-leg-groove-right {
+  0%, 100% { transform: rotate(-14deg) translateY(-5px); }
+  50% { transform: rotate(10deg) translateY(0); }
+}
+
+@keyframes senku-shadow-pulse {
+  0%, 100% { transform: scaleX(1); opacity: 0.25; }
+  25%, 75% { transform: scaleX(0.76); opacity: 0.14; }
+}
+
+@keyframes senku-note-float {
+  0% { transform: translateY(8px) scale(0.8) rotate(-8deg); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(-28px) scale(1.15) rotate(10deg); opacity: 0; }
+}
+
+@keyframes senku-title-pop {
+  0% { transform: scale(0.72) rotate(-2deg); opacity: 0; }
+  65% { transform: scale(1.06) rotate(1deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.animate-senku-dance {
+  transform-origin: 50% 85%;
+  animation: senku-dance-body 0.85s ease-in-out infinite;
+}
+
+.animate-senku-arm-l {
+  transform-origin: 56px 104px;
+  animation: senku-arm-wave-left 0.425s ease-in-out infinite;
+}
+
+.animate-senku-arm-r {
+  transform-origin: 104px 104px;
+  animation: senku-arm-wave-right 0.425s ease-in-out infinite;
+}
+
+.animate-senku-leg-l {
+  transform-origin: 68px 142px;
+  animation: senku-leg-groove-left 0.425s ease-in-out infinite;
+}
+
+.animate-senku-leg-r {
+  transform-origin: 92px 142px;
+  animation: senku-leg-groove-right 0.425s ease-in-out infinite;
+}
+
+.animate-senku-shadow {
+  transform-origin: center;
+  animation: senku-shadow-pulse 0.85s ease-in-out infinite;
+}
+
+.animate-senku-note-1 {
+  animation: senku-note-float 1.6s ease-out infinite;
+}
+
+.animate-senku-note-2 {
+  animation: senku-note-float 1.9s ease-out 0.55s infinite;
+}
+
+.animate-senku-title {
+  animation: senku-title-pop 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "SENKU LAB",
+  "description": "Interactive Kingdom of Science progression game in Hinglish — master 7 eras from Stone Age to Space Age.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
